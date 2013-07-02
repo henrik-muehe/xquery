@@ -1,0 +1,49 @@
+!!! 5
+head
+	title XQuery Interface
+	meta(property="og:title",content="XQuery Interface")
+	meta(property="og:image",content="/screenshot.png")
+	meta(name='viewport', content='width=device-width, initial-scale=1.0')
+	link(rel='stylesheet', href='/jam/highlight/styles/default.css')
+	link(rel='stylesheet', href='/jam/codemirror3/lib/codemirror.css')
+	link(rel='stylesheet', href='/jam/codemirror3/theme/xq-light.css')
+	link(rel='stylesheet', href='/jam/bootstrap-jam/bootstrap/css/bootstrap.min.css')
+	style(type='text/css').
+		body { padding-top: 60px; padding-bottom: 40px; }
+		.sidebar-nav { padding: 9px 0; }
+	link(rel='stylesheet', href='/jam/bootstrap-jam/bootstrap/css/bootstrap-responsive.min.css')
+	block header
+body
+	.navbar.navbar-fixed-top
+		.navbar-inner
+			.container-fluid
+				.brand
+					a(href="/") XQuery Interface
+				block navigation
+
+	script var require = {baseUrl: "/"};
+	script(src="/jam/require.js")
+	script(src="/jam/jquery/dist/jquery.min.js")
+	script(src="/jam/jquery-ui/dist/jquery-ui.min.js")
+	script(src="/jam/codemirror3/lib/codemirror.js")
+	script(src="/jam/codemirror3/mode/xquery/xquery.js")
+
+	block body
+
+	script require(['app']);
+
+	div.navbar.navbar-fixed-bottom
+		.navbar-inner
+			.container-fluid
+				.row-fluid
+					.span6(style="line-height:40px")
+						| Copyright <a href="mailto:henrik.muehe@gmail.com">Henrik Mühe</a>, 2013
+					.span6(style="line-height:40px")
+						ul.nav.pull-right
+							li
+								a(href="https://github.com/henrik-muehe/xq") sourcecode
+							li
+								a(href="http://muehe.org") blog
+
+
+	script(src="/jam/bootstrap-jam/bootstrap/js/bootstrap.js")

@@ -1,0 +1,32 @@
+{
+  "name": "XQueryTool",
+  "description": "",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "connect": "*",
+    "express": "3.x",
+    "jade": "*",
+    "coffee-script": "*",
+    "requirejs": "*",
+    "jamjs": "*",
+    "nodemon": "*",
+    "temp": "*"
+  },
+  "jam": {
+    "packageDir": "public/jam",
+    "baseUrl": "public",
+    "dependencies": {
+      "require": null,
+      "jquery": null,
+      "jquery-cookie": null,
+      "jquery-ui": null,
+      "bootstrap-jam": null,
+      "underscore": null,
+      "director": null,
+      "font-awesome": null,
+      "codemirror3": null,
+      "highlight": null
+    }
+  }
+}

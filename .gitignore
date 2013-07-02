@@ -1,0 +1,5 @@
+*.map
+public
+node_modules
+*.js
+server.pid
