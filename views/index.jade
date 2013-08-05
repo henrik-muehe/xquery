@@ -30,6 +30,10 @@ block navigation
 				b.caret
 			ul.dropdown-menu(role="menu",aria-labelledby="drop1")
 				li(role="presentation")
+					a.example Find Vorlesung with id V5022
+					code.hidden.
+						doc('uni2')/id('V5022')
+				li(role="presentation")
 					a.example(role="menuitem") Find Augustinus.
 					code.hidden.
 						doc('uni')//*[./Name='Augustinus']
