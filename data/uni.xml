@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Universitaet [
+<!ELEMENT Universitaet (UniLeitung, Fakultaeten, Studenten)>
+<!ATTLIST Universitaet UnivName CDATA #REQUIRED>
+<!ELEMENT UniLeitung (Rektor, Kanzler)>
+  <!ELEMENT Rektor (#PCDATA)>
+  <!ELEMENT Kanzler (#PCDATA)>
+<!ELEMENT Fakultaeten (Fakultaet*)>
+  <!ELEMENT Fakultaet (FakName, ProfessorIn*)>
+    <!ELEMENT FakName (#PCDATA)>
+    <!ELEMENT ProfessorIn (Name, Rang, Raum, Vorlesungen?, Assistenten?)>
+      <!ATTLIST ProfessorIn PersNr ID #REQUIRED>
+      <!ELEMENT Name (#PCDATA)>
+      <!ELEMENT Rang (#PCDATA)>
+      <!ELEMENT Raum (#PCDATA)>
+      <!ELEMENT Vorlesungen (Vorlesung+)>
+        <!ELEMENT Vorlesung (Titel, SWS)>
+        <!ATTLIST Vorlesung VorlNr ID #REQUIRED>
+        <!ATTLIST Vorlesung Voraussetzungen IDREFS #IMPLIED>
+        <!ELEMENT Titel (#PCDATA)>
+        <!ELEMENT SWS (#PCDATA)> 
+      <!ELEMENT Assistenten (Assistent+)>
+        <!ELEMENT Assistent (Name, Fachgebiet)>
+          <!ELEMENT Fachgebiet (#PCDATA)>
+          <!ATTLIST Assistent PersNr CDATA #IMPLIED>
+<!ELEMENT Student (Name, Semester, hoert?, Pruefungen?)>        
+  <!ATTLIST Student MatrNr ID #REQUIRED>
+  <!ELEMENT Semester (#PCDATA)>
+  <!ELEMENT hoert EMPTY>
+    <!ATTLIST hoert Vorlesungen IDREFS #IMPLIED>
+  <!ELEMENT Pruefungen (Pruefung+)>
+    <!ELEMENT Pruefung EMPTY>
+    <!ATTLIST Pruefung Pruefer IDREF #IMPLIED>
+    <!ATTLIST Pruefung Vorlesung IDREF #IMPLIED>
+    <!ATTLIST Pruefung Note CDATA #IMPLIED>
+]>
+
+
+<Universitaet UnivName="Virtuelle Universitaet der Großen Denker">
+  <UniLeitung>
+    <Rektor>Prof. Sokrates</Rektor>
+    <Kanzler>Dr. Erhard</Kanzler>
+  </UniLeitung>
+  <Fakultaeten>
+    <Fakultaet>
+      <FakName>Theologie</FakName>
+      <ProfessorIn PersNr="P2134">
+        <Name>Augustinus</Name>
+        <Rang>C3</Rang>
+        <Raum>309</Raum>
+        <Vorlesungen>
+          <Vorlesung VorlNr="V5022">
+            <Titel>Glaube und Wissen</Titel>
+            <SWS>2</SWS>
+          </Vorlesung>
+        </Vorlesungen>
+        <Assistenten>
+          <Assistent PersNr="P3007">
+            <Name>Spinoza</Name>
+            <Fachgebiet>Gott und Natur</Fachgebiet>
+          </Assistent>
+        </Assistenten>
+      </ProfessorIn>
+    </Fakultaet>
+    <Fakultaet>
+      <FakName>Physik</FakName>
+      <ProfessorIn PersNr="P2136">
+        <Name>Curie</Name>
+        <Rang>C4</Rang>
+        <Raum>36</Raum>
+      </ProfessorIn>
+      <ProfessorIn PersNr="P2127">
+        <Name>Kopernikus</Name>
+        <Rang>C3</Rang>
+        <Raum>310</Raum>
+        <Assistenten>
+          <Assistent PersNr="P3005">
+            <Name>Rhetikus</Name>
+            <Fachgebiet>Planetenbewegung</Fachgebiet>
+          </Assistent>
+          <Assistent PersNr="P3006">
+            <Name>Newton</Name>
+            <Fachgebiet>Keplersche Gesetze</Fachgebiet>
+          </Assistent>
+        </Assistenten>
+      </ProfessorIn>
+    </Fakultaet>
+    <Fakultaet>
+      <FakName>Philosophie</FakName>
+      <ProfessorIn PersNr="P2125">
+        <Name>Sokrates</Name>
+        <Rang>C4</Rang>
+        <Raum>226</Raum>
+        <Vorlesungen>
+          <Vorlesung VorlNr="V5041" Voraussetzungen="V5001">
+            <Titel>Ethik</Titel>
+            <SWS>4</SWS>
+          </Vorlesung>
+          <Vorlesung VorlNr="V5049" Voraussetzungen="V5001">
+            <Titel>Maeeutik</Titel>
+            <SWS>2</SWS>
+          </Vorlesung>
+          <Vorlesung VorlNr="V4052">
+            <Titel>Logik</Titel>
+            <SWS>4</SWS>
+          </Vorlesung>
+        </Vorlesungen>
+        <Assistenten>
+          <Assistent PersNr="P3002">
+            <Name>Platon</Name>
+            <Fachgebiet>Ideenlehre</Fachgebiet>
+          </Assistent>
+          <Assistent PersNr="P3003">
+            <Name>Aristoteles</Name>
+            <Fachgebiet>Syllogistik</Fachgebiet>
+          </Assistent>
+        </Assistenten>
+      </ProfessorIn>
+      <ProfessorIn PersNr="P2126">
+        <Name>Russel</Name>
+        <Rang>C4</Rang>
+        <Raum>232</Raum>
+        <Vorlesungen>
+          <Vorlesung VorlNr="V5043" Voraussetzungen="V5001">
+            <Titel>Erkenntnistheorie</Titel>
+            <SWS>3</SWS>
+          </Vorlesung>
+          <Vorlesung VorlNr="V5052" Voraussetzungen="V5043 V5041">
+            <Titel>Wissenschaftstheorie</Titel>
+            <SWS>3</SWS>
+          </Vorlesung>
+        </Vorlesungen>
+        <Assistenten>
+          <Assistent PersNr="P3004">
+            <Name>Wittgenstein</Name>
+            <Fachgebiet>Sprachtheorie</Fachgebiet>
+          </Assistent>
+        </Assistenten>
+      </ProfessorIn>
+      <ProfessorIn PersNr="P2133">
+        <Name>Popper</Name>
+        <Rang>C3</Rang>
+        <Raum>52</Raum>
+        <Vorlesungen>
+          <Vorlesung VorlNr="V5259" Voraussetzungen="V5052">
+            <Titel>Der Wiener Kreis</Titel>
+            <SWS>2</SWS>
+          </Vorlesung>
+        </Vorlesungen>
+      </ProfessorIn>
+      <ProfessorIn PersNr="P2137">
+        <Name>Kant</Name>
+        <Rang>C4</Rang>
+        <Raum>7</Raum>
+        <Vorlesungen>
+          <Vorlesung VorlNr="V5001">
+            <Titel>Grundzuege</Titel>
+            <SWS>4</SWS>
+          </Vorlesung>
+          <Vorlesung VorlNr="V5216" Voraussetzungen="V5041">
+            <Titel>Bioethik</Titel>
+            <SWS>2</SWS>
+          </Vorlesung>
+          <Vorlesung VorlNr="V4630">
+            <Titel>Die 3 Kritiken</Titel>
+            <SWS>4</SWS>
+          </Vorlesung>
+        </Vorlesungen>
+      </ProfessorIn>
+    </Fakultaet>
+  </Fakultaeten>
+  <Studenten>
+    <Student MatrNr="M24002">
+      <Name>Xenokrates</Name>
+      <Semester>18</Semester>
+    </Student>
+    <Student MatrNr="M25403">
+      <Name>Jonas</Name>
+      <Semester>12</Semester>
+      <hoert Vorlesungen="V5022" />
+      <Pruefungen>
+        <Pruefung Pruefer="P2125" Vorlesung="V5041" Note="2.0" />
+      </Pruefungen>
+    </Student>
+    <Student MatrNr="M26120">
+      <Name>Fichte</Name>
+      <Semester>10</Semester>
+      <hoert Vorlesungen="V5001" />
+    </Student>
+    <Student MatrNr="M26830">
+      <Name>Aristoxenos</Name>
+      <Semester>8</Semester>
+    </Student>
+    <Student MatrNr="M27550">
+      <Name>Schopenhauer</Name>
+      <Semester>6</Semester>
+      <Pruefungen>
+        <Pruefung Pruefer="P2137" Vorlesung="V4630" Note="2.0" />
+      </Pruefungen>
+      <hoert Vorlesungen="V5001 V4052" />      
+    </Student>
+    <Student MatrNr="M28106">
+      <Name>Carnap</Name>
+      <Semester>3</Semester>
+      <hoert Vorlesungen="V5041 V5052 V5216 V5259" />
+      <Pruefungen>
+        <Pruefung Pruefer="P2126" Vorlesung="V5001" Note="1.0" />
+      </Pruefungen>
+    </Student>
+    <Student MatrNr="M29120">
+      <Name>Theophrastos</Name>
+      <Semester>2</Semester>
+      <hoert Vorlesungen="V5001 V5041 V5049" />
+    </Student>
+    <Student MatrNr="M29555">
+      <Name>Feuerbach</Name>
+      <Semester>2</Semester>
+      <hoert Vorlesungen="V5001 V5022" />
+    </Student>
+  </Studenten>
+</Universitaet>
