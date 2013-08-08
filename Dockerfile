@@ -34,5 +34,5 @@ RUN cd /src ; ./node_modules/jamjs/bin/jam.js install
 RUN cd /src ; make
 
 # Run
-EXPOSE 3002
+EXPOSE 8080
 CMD ["/src/startup.sh"]
